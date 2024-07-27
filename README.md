@@ -5,7 +5,7 @@
 
 ## Install
 1. install [Java 21 JDK](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
-2. download **WhiteAlbum** from [Releases](https://github.com/lecterkn/WhiteAlbumV2/releases)
+2. download **WhiteAlbum** from [Releases](https://github.com/lecterkn/WhiteAlbumKt/releases)
 
 ## Usage
 run jar file or batch/shell file
