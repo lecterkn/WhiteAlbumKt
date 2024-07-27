@@ -15,7 +15,6 @@ java {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
-
 repositories {
     mavenCentral()
 }
@@ -28,15 +27,9 @@ dependencies {
     implementation("org.apache.httpcomponents:httpclient:4.5.13")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
-    implementation("io.ktor:ktor-client-core:2.3.12")
-    implementation("io.ktor:ktor-client-cio:2.3.12")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-}
-
-application {
-    mainClass.set("me.lecter.whitealbum.WhiteAlbumApplication.kt")
 }
 
 kotlin {
