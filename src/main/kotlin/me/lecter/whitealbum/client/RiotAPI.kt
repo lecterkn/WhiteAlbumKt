@@ -26,6 +26,11 @@ class RiotAPI {
     val RIOTCLIENT_PLATFORM: String = "ew0KCSJwbGF0Zm9ybVR5cGUiOiAiUEMiLA0KCSJwbGF0Zm9ybU9TIjogIldpbmRvd3MiLA0KCSJwbGF0Zm9ybU9TVmVyc2lvbiI6ICIxMC4wLjE5MDQyLjEuMjU2LjY0Yml0IiwNCgkicGxhdGZvcm1DaGlwc2V0IjogIlVua25vd24iDQp9"
 
     init {
+        updateVersion()
+        refreshUserAgent()
+    }
+
+    fun updateVersion() {
         try {
             HttpClientBuilder.create().build().use { httpClient ->
                 val httpGet: HttpGet = HttpGet("https://valorant-api.com/v1/version")
@@ -36,8 +41,7 @@ class RiotAPI {
                         val version = json["data"]?.jsonObject?.get("riotClientBuild")?.jsonPrimitive?.content!!
                         RIOTCLIENT_VERSION =
                             json["data"]?.jsonObject?.get("riotClientVersion")?.jsonPrimitive?.content!!
-                        println("User-Agent updated: \"$USER_AGENT\"")
-                        println("RiotClient-Version updated: \"$RIOTCLIENT_VERSION\"")
+                        println("RiotClient-Version: \"$RIOTCLIENT_VERSION\"")
                     } else {
                         throw IOException("failed to get data")
                     }
@@ -46,6 +50,9 @@ class RiotAPI {
         } catch (e: IOException) {
             e.printStackTrace()
         }
+    }
+
+    fun refreshUserAgent() {
         USER_AGENT = tokenUrlSafe(96).replace("_", "-")
     }
 }

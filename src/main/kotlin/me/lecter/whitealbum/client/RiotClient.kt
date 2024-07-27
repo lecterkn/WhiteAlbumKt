@@ -54,6 +54,7 @@ class RiotClient(
     val logger = LoggerFactory.getLogger(this::class.java)
 
     fun login(): Boolean {
+        api.refreshUserAgent()
         val cookieStore = BasicCookieStore()
         try {
             HttpClients.custom()
@@ -90,7 +91,10 @@ class RiotClient(
                     // PUTリクエストを送信
                     httpClient.execute(httpPut).use { httpResponse ->
                         val body = EntityUtils.toString(httpResponse.entity)
-                        println(body)
+                        if (httpResponse.statusLine.statusCode != 200) {
+                            println("httpStatus: ${httpResponse.statusLine.statusCode}")
+                            println(body)
+                        }
                         val responseJson = Json.parseToJsonElement(body).jsonObject
                         val type = responseJson["type"]?.jsonPrimitive?.content!!
                         when (type) {

@@ -16,5 +16,11 @@ data class AuthBody(
     val redirect_uri: String = "http://localhost/redirect",
     val response_type: String = "token id_token",
     val scope: String = "openid link ban lol_region account",
-)
+) {
+    companion object {
+        fun getAuthBody(): AuthBody {
+            return AuthBody(client_id = "play-valorant-web-prod", nonce = "1", redirect_uri = "https://playvalorant.com/opt_in", scope = "account openid")
+        }
+    }
+}
 
