@@ -38,7 +38,6 @@ class RiotAPI {
                 httpClient.execute(httpGet).use { httpResponse ->
                     if (httpResponse.statusLine.statusCode == 200) {
                         val json = Json.parseToJsonElement(EntityUtils.toString(httpResponse.entity)).jsonObject
-                        val version = json["data"]?.jsonObject?.get("riotClientBuild")?.jsonPrimitive?.content!!
                         RIOTCLIENT_VERSION =
                             json["data"]?.jsonObject?.get("riotClientVersion")?.jsonPrimitive?.content!!
                         println("RiotClient-Version: \"$RIOTCLIENT_VERSION\"")
