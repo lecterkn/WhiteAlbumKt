@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: WhiteAlbum
+  main:
+    banner-mode: off
+server:
+  port: 8100
+logging:
+  level:
+    root: DEBUG
