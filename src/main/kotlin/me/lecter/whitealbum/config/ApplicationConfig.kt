@@ -8,5 +8,5 @@ import me.lecter.whitealbum.client.enum.Region
 data class ApplicationConfig(
     val skinLevels_preload: Boolean = true,
     val region: Region = Region.AP,
-    val language: APILanguage = APILanguage.EN,
+    val language: APILanguage = APILanguage.JP,
 )
