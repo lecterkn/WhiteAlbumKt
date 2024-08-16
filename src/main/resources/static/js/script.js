@@ -173,11 +173,6 @@ function loadSettings() {
         type:"GET",
         crossDomain:true
     }).done((data) => {
-        $("#webhookURLText").empty();
-        $("#webhookURLText").append(`URL: <span class="text-info">${data["url"]}</span>`)
-        $("#webhookIconText").empty();
-        $("#webhookIconText").append(`Icon: <span class="text-info">${data["icon"]}</span>`)
-        $("#webhookIconSrc").attr("src", data["icon"]);
     })
 }
 

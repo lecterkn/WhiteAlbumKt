@@ -59,6 +59,8 @@ class StoreFront(
         }
         val storeFrontJson = Json.parseToJsonElement(json).jsonObject
 
+        println(json)
+
         // singleItemOffers設定
         for (element in storeFrontJson["SkinsPanelLayout"]?.jsonObject?.get("SingleItemStoreOffers")?.jsonArray!!) {
             val offerId = element.jsonObject["OfferID"]?.jsonPrimitive?.content!!
@@ -77,8 +79,8 @@ class StoreFront(
 
         // nightMarket設定
         if (storeFrontJson.containsKey("BonusStore")) {
-            for (element in storeFrontJson["BonusStore"]?.jsonObject?.get("BonusStoreOffer")?.jsonArray!!) {
-                val offerId = element.jsonObject["Offer"]?.jsonObject?.get("OfferId")?.jsonPrimitive?.content!!
+            for (element in storeFrontJson["BonusStore"]?.jsonObject?.get("BonusStoreOffers")?.jsonArray!!) {
+                val offerId = element.jsonObject["Offer"]?.jsonObject?.get("OfferID")?.jsonPrimitive?.content!!
                 val skinLevel = getSkinLevel(offerId)
                 if (skinLevel != null) {
                     val itemOffer =

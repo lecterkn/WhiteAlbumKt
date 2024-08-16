@@ -3,8 +3,10 @@ spring:
     name: WhiteAlbum
   main:
     banner-mode: off
+  thymeleaf:
+    cache: false
 server:
   port: 8100
 logging:
   level:
-    root: INFO
+    root: DEBUG

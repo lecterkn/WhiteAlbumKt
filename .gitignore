@@ -38,3 +38,8 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+### application settings and saved accounts ###
+config.json
+saved
+proxy.txt
